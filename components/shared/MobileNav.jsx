@@ -5,6 +5,8 @@ import React from 'react'
 import Image from 'next/image'
 import { UserButton } from '@clerk/nextjs'
 import Link from 'next/link'
+import { SignedIn,SignedOut } from '@clerk/nextjs';
+import { Button } from '../ui/button';
 import {
     Sheet,
     SheetContent,
@@ -21,6 +23,7 @@ const MobileNav = () => {
         <Image src="assets/images/logo-text.svg" alt="" width={180} height={28}/>
         </Link>
         <nav className='flex gap-4'>
+        <SignedIn>
         <UserButton />
         <Sheet>
             <SheetTrigger>
@@ -57,6 +60,12 @@ const MobileNav = () => {
                 </>
             </SheetContent>
         </Sheet>
+        </SignedIn>
+        <SignedOut>
+                <Button asChild className="button bg-purple-gradient bg-cover focus-visible:ring-offset-0 focus-visible:ring-transparent!important">
+                  <Link href='/sign-in'>sign-up</Link>
+                </Button>
+              </SignedOut>
         </nav>
 
     </header>
