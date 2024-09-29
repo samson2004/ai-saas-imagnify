@@ -21,7 +21,7 @@ if(!cached){
 }
 export const connecttodatabase =async ()=>{
     if(cached.conn) return cached.conn;
-    if(!mongodb_url) throw new Error('missing  mongo_db_urld');
+    if(!mongodb_url) throw new Error('missing  mongo_db_url');
     cached.promise= cached.promise|| mongoose.connect(
         mongodb_url,{
             dbName:'imagnify ',
@@ -29,7 +29,7 @@ export const connecttodatabase =async ()=>{
         })
 
     cached.conn=await cached.promise
-    console.log("connected to database ")
+   
 
     return cached.conn
 }

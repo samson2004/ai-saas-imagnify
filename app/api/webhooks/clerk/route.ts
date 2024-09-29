@@ -52,6 +52,8 @@ export async function POST(req: Request) {
   // For this guide, you simply log the payload to the console
   const { id } = evt.data
   const eventType = evt.type
+  console.log(evt.data)
+  console.log(evt.type)
 
  // CREATE
  if (eventType === "user.created") {
@@ -61,8 +63,8 @@ export async function POST(req: Request) {
     clerkId: id,
     email: email_addresses[0].email_address,
     username: username!,
-    firstname: first_name??"",
-    lastname: last_name??"",
+    firstname: first_name??"jake",
+    lastname: last_name??"jake",
     photo: image_url,
   };
 
@@ -85,8 +87,8 @@ if (eventType === "user.updated") {
   const { id, image_url, first_name, last_name, username } = evt.data;
 
   const user = {
-    firstname: first_name??"",
-    lastname: last_name??"",
+    firstname: first_name??"jake",
+    lastname: last_name??"jake",
     username: username!,
     photo: image_url,
   };
