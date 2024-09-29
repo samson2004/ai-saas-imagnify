@@ -24,7 +24,7 @@ export const connecttodatabase =async ()=>{
     if(!mongodb_url) throw new Error('missing  mongo_db_url');
     cached.promise= cached.promise|| mongoose.connect(
         mongodb_url,{
-            dbName:'imagnify ',
+            dbName:'imagnifydb',
             bufferCommands:false
         })
 
