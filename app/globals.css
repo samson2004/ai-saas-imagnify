@@ -79,6 +79,9 @@
 }
 
 @layer utilities {
+  .h2-bold {
+    @apply text-[30px] font-bold leading-[110%];
+  }
   .header-nav_elements {
     @apply mt-8 flex w-full flex-col items-start gap-5;
   }
@@ -147,9 +150,7 @@
     .h1-semibold {
         @apply text-[36px] font-semibold sm: text-[44px] leading-[120%] sm: leading-[56px];
     }
-    .h2-bold {
-        @apply text-[30px] font-bold md: text-[36px] leading-[110%];
-    }
+    
     .h3-bold {
         @apply font-bold text-[30px] leading-[140%];
     }
