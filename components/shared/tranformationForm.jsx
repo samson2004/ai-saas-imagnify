@@ -1,12 +1,12 @@
 
-"use client"
+"use client";
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
 import { z } from "zod"
 // import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
 import {CustomField} from '@/components/shared/customfield'
-
+import MediaUploader from '@/components/shared/MediaUploader'
 import {
   Select,
   SelectContent,
@@ -186,6 +186,23 @@ const TranformationForm = ({action,data=null,userId,type,creaditBalance,config=n
         )}
       </div>
     )}
+
+    <div className="media-uploader-field  md:grid-cols-2">
+      <CustomField  
+      control={form.control}
+      name='publicId'
+      className="flex size-full flex-col"
+      render={({field})=>(
+        <MediaUploader
+        onValueChange={field.onChange}
+        setImage={setimage}
+        publicId={field.value}
+        image={image}
+        type={type} 
+        />
+      )}
+      />
+    </div>
 
     <div className="flex flex-col gap-4">
     <Button type="button" className="submit-button md:h-[54px] capitalize" 

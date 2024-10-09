@@ -22,7 +22,7 @@ const IBMPlex=IBM_Plex_Sans({
 
 export const metadata: Metadata = {
   title: "Imagify",
-  description: "AI-powered Gen",
+  description: "AI-power'd Gen",
 };
 
 export default function RootLayout({
@@ -37,7 +37,7 @@ export default function RootLayout({
           className={cn('font-IBMPlex antialiased',IBMPlex.variable)}
         >
           {children}
-        </body>
+        </body> 
       </html>
    </ClerkProvider>
 

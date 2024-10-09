@@ -1,5 +1,6 @@
 import Sidebar from '@/components/shared/sidebar'
 import MobileNav from '@/components/shared/MobileNav'
+import { Toaster } from "@/components/ui/toaster"
 const Layout = ({children}) => {
   return (
     <main className="root lg:flex-row">
@@ -10,6 +11,7 @@ const Layout = ({children}) => {
         {children}
         </div>
       </div>
+      <Toaster />
       </main>
   );
 }
