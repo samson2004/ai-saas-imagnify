@@ -1,7 +1,12 @@
+
+"use client"
+
+
 /* eslint-disable @typescript-eslint/no-unused-expressions */
 import React from 'react'
 import Image from 'next/image';
 import { CldImage } from 'next-cloudinary';
+import { dataUrl, getImageSize } from '@/lib/utils'
 const TransformedImage = (
     {
         image,

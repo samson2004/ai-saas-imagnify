@@ -78,21 +78,21 @@ const TranformationForm = ({action,data=null,userId,type,creaditBalance,config=n
         src:image?.publicId,
         ...Transformationconfig
       })
-    }
-    const imageData={
-      title:values.title,
-      publicId:image?.publicId,
-      tranformationtype:type,
-      width:image?.width,
-      height:image?.height,
-      config:Transformationconfig,
-      secureURL:image?.secureUrl,
-      transformationURL:transformationurl ,
-      aspectRatio:values.aspectRatio,
-      prompt:values.prompt,
-      color:values.color
-
-    }
+      const imageData={
+        title:values.title,
+        publicId:image?.publicId,
+        transformationType:type,
+        width:image?.width,
+        height:image?.height,
+        config:Transformationconfig,
+        secureURL:image?.secureUrl,
+        transformationURL:transformationurl ,
+        aspectRatio:values.aspectRatio,
+        prompt:values.prompt,
+        color:values.color
+  
+      }
+       
     if(action=='Add'){
       try {
         const newImage=await AddImage({
@@ -104,7 +104,7 @@ const TranformationForm = ({action,data=null,userId,type,creaditBalance,config=n
         if(newImage){
           form.reset();
           setimage(data);
-          router.push(`/tranformation/${newImage._id}`)
+          router.push(`/transformation/${newImage._id}`)
         }
       } catch (error) {
         console.log(error)
@@ -119,15 +119,17 @@ const TranformationForm = ({action,data=null,userId,type,creaditBalance,config=n
             _id:data._id
           },
           userId,
-          path:`/transformations/${data._id}`
+          path:`/transformation/${data._id}`
 
         })
         if(updatedImage){
-          router.push(`/tranformation/${updatedImage._id}`)
+          router.push(`/transformation/${updatedImage._id}`)
         }
       } catch (error) {
         console.log(error)
       }
+    }
+   
     }
     setIsSubmitting(false); 
   }

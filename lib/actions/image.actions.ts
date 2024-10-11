@@ -17,17 +17,18 @@ const populateuser=(query:any)=>query.populate({
 //add image
 export async function AddImage({userId,image,path}:AddImageParams){
     try {
+        console.log(path)
         await connecttodatabase;
 
         const author=await User.findById(userId);
-        if(!author){throw new Error('User not found')}
+        if(!author){throw Error('User not found')}
 
         const newimage=await Image.create({
             ...image,
             author:author._id
         })
         revalidatePath(path);
-        return JSON.parse(stringify(newimage));
+        return JSON.parse(JSON.stringify(newimage));
 
     } catch (error) {
         handleError(error);
@@ -43,7 +44,7 @@ export async function UpdateImage({image,userId,path}:UpdateImageParams){
         const updateimage=await Image.findById(userId);
 
         if(!updateimage || updateimage.author.toHexString() !=userId){
-            throw new Error('Unauthorized or Image not found');
+            throw  Error('Unauthorized or Image not found');
         }
 
         const updatedimage=await Image.findByIdAndUpdate(
@@ -83,7 +84,7 @@ export async function GetImagebyId(userId:string){
 
         const image=await populateuser(Image.findById(userId));
 
-        if(!image)throw new Error('image not found');
+        if(!image)throw Error('image not found');
 
         return JSON.parse(stringify(image));
 

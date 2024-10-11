@@ -16,15 +16,15 @@ export const handleError = (error: unknown) => {
   if (error instanceof Error) {
     // This is a native JavaScript error (e.g., TypeError, RangeError)
     console.error(error.message);
-    throw new Error(`Error: ${error.message}`);
+    throw  Error(`Error: ${error.message}`);
   } else if (typeof error === "string") {
     // This is a string error message
     console.error(error);
-    throw new Error(`Error: ${error}`);
+    throw  Error(`Error: ${error}`);
   } else {
     // This is an unknown type of error
     console.error(error);
-    throw new Error(`Unknown error: ${JSON.stringify(error)}`);
+    throw  Error(`Unknown error: ${JSON.stringify(error)}`);
   }
 };
 
@@ -115,7 +115,7 @@ export const getImageSize = (
 // DOWNLOAD IMAGE
 export const download = (url: string, filename: string) => {
   if (!url) {
-    throw new Error("Resource URL not provided! You need to provide one");
+    throw Error("Resource URL not provided! You need to provide one");
   }
 
   fetch(url)

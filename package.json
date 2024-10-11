@@ -1,4 +1,9 @@
 {
+  "browser": {
+    "fs": true,
+    "path": false,
+    "os": false
+  },
   "name": "imagify",
   "version": "0.1.0",
   "private": true,
