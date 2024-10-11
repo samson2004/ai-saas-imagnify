@@ -160,6 +160,21 @@
   .media-uploader_cldImage {
     @apply h-fit min-h-72 w-full rounded-[10px] border border-dashed bg-purple-100/20 object-cover p-2;
   }
+  .download-btn {
+    @apply p-14-medium mt-2 flex items-center gap-2 px-2;
+  }
+  .p-14-medium {
+    @apply font-medium text-[14px] leading-[120%];
+  }
+  .transformed-image {
+    @apply h-fit min-h-72 w-full rounded-[10px] border border-dashed bg-purple-100/20 object-cover p-2;
+  }
+  .transforming-loader {
+    @apply flex-center absolute left-[50%] top-[50%] size-full -translate-x-1/2 -translate-y-1/2 flex-col gap-2 rounded-[10px] border bg-dark-700/90;
+  }
+  .transformed-placeholder {
+    @apply flex-center p-14-medium h-full min-h-72 flex-col gap-5 rounded-[16px] border border-dashed bg-purple-100/20 shadow-inner;
+  }
 }
 
 .cl-userButtonBox {
@@ -199,9 +214,7 @@
         @apply font-medium text-[16px] leading-[140%];
     }
     
-    .p-14-medium {
-        @apply font-medium text-[14px] leading-[120%];
-    }
+    
     .p-10-medium {
         @apply font-medium text-[10px] leading-[140%];
     }
@@ -290,15 +303,5 @@
 
  
     
-    .download-btn {
-        @apply p-14-medium mt-2 flex items-center gap-2 px-2;
-    }
-    .transformed-image {
-        @apply h-fit min-h-72 w-full rounded-[10px] border border-dashed bg-purple-100/20 object-cover p-2;
-    }
-    .transforming-loader {
-        @apply flex-center absolute left-[50%] top-[50%] size-full -translate-x-1/2 -translate-y-1/2 flex-col gap-2 rounded-[10px] border bg-dark-700/90;
-    }
-    .transformed-placeholder {
-        @apply flex-center p-14-medium h-full min-h-72 flex-col gap-5 rounded-[16px] border border-dashed bg-purple-100/20 shadow-inner;
-    } */
+ 
+     */

@@ -2,7 +2,7 @@
 
 
 import { useToast } from "@/hooks/use-toast"
-import { Toast } from "@radix-ui/react-toast";
+// import { Toast } from "@radix-ui/react-toast";
 import { CldUploadWidget } from 'next-cloudinary'; 
 import Image from "next/image";
 import { CldImage } from 'next-cloudinary';
@@ -39,7 +39,7 @@ const MediaUploader = ({
     }
 
 
-    const onUploadErrorHandler=(result)=>{
+    const onUploadErrorHandler=()=>{
         toast({
             title: "Something went wrong",
             description:'Please try again',
