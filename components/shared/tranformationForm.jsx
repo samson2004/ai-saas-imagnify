@@ -1,6 +1,7 @@
 
 
 "use client";
+import InsufficientCreditModal from '@/components/shared/InsufficientCreditModal'
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
 import { z } from "zod"
@@ -16,9 +17,9 @@ import {
   SelectValue,
 } from "@/components/ui/select"
 import {Form} from "@/components/ui/form"
-import { aspectRatioOptions, defaultValues, transformationTypes } from "@/constants"
+import { aspectRatioOptions, creditFee, defaultValues, transformationTypes } from "@/constants"
 import { Input } from "../ui/input"
-import { useState, useTransition } from "react"
+import { useEffect, useState, useTransition } from "react"
 import { debounce, deepMergeObjects } from "@/lib/utils"
 import { updateCredits } from "@/lib/actions/user.actions"
 import { getCldImageUrl } from "next-cloudinary";
@@ -181,14 +182,21 @@ const TranformationForm = ({action,data=null,userId,type,creaditBalance,config=n
     setnewTransformation(null);
 
     startTransition(async()=>{
-      await updateCredits(userId,-1)
+      await updateCredits(userId,creditFee)
     })
   }
 
   
+  useEffect(()=>{
+    if(image && (type=='restore' || type =="removeBackground")){
+      setnewTransformation(tranformationtype.config);
+    }
+  },[image,tranformationtype.config,type])
+  
   return (
     <Form {...form}>
     <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+      {creaditBalance  < Math.abs(creditFee) && (<InsufficientCreditModal/>)}
     <CustomField 
     control={form.control}
     name='title'

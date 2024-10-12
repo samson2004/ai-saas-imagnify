@@ -175,6 +175,15 @@
   .transformed-placeholder {
     @apply flex-center p-14-medium h-full min-h-72 flex-col gap-5 rounded-[16px] border border-dashed bg-purple-100/20 shadow-inner;
   }
+  .home {
+    @apply hidden h-72 flex-col gap-4 rounded-[20px] border bg-banner bg-cover bg-no-repeat p-10 shadow-inner;
+  }
+  .home-heading {
+    @apply h1-semibold max-w-[500px] flex-wrap text-center text-white shadow-sm;
+  }
+  .h1-semibold {
+    @apply text-[36px] font-semibold  leading-[120%];
+  }
 }
 
 .cl-userButtonBox {
@@ -192,9 +201,7 @@
 /* 
     
     
-    .h1-semibold {
-        @apply text-[36px] font-semibold sm: text-[44px] leading-[120%] sm: leading-[56px];
-    }
+    
     
     
     .p-24-bold {
@@ -245,12 +252,7 @@
     .error-toast {
         @apply bg-red-100 text-red-900;
     }
-    .home {
-        @apply sm: flex-center hidden h-72 flex-col gap-4 rounded-[20px] border bg-banner bg-cover bg-no-repeat p-10 shadow-inner;
-    }
-    .home-heading {
-        @apply h1-semibold max-w-[500px] flex-wrap text-center text-white shadow-sm;
-    }
+    
     .credits-list {
         @apply mt-11 grid grid-cols-1 gap-5 sm: grid-cols-2 md: gap-9 xl: grid-cols-3;
     }

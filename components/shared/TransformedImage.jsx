@@ -6,7 +6,7 @@
 import React from 'react'
 import Image from 'next/image';
 import { CldImage } from 'next-cloudinary';
-import { dataUrl, getImageSize } from '@/lib/utils'
+import { dataUrl, debounce, getImageSize } from '@/lib/utils'
 const TransformedImage = (
     {
         image,
@@ -51,7 +51,7 @@ const TransformedImage = (
                                 setIsTransforming && setIsTransforming(false);
                             }}
                             onError={()=>{
-                                describe(()=>{
+                                debounce(()=>{
                                     setIsTransforming && setIsTransforming(false);
                                 },8000)
                             }}
