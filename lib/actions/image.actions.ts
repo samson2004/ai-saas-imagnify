@@ -86,7 +86,7 @@ export async function GetImagebyId(userId:string){
 
         if(!image)throw Error('image not found');
 
-        return JSON.parse(stringify(image));
+        return JSON.parse(JSON.stringify(image));
 
     } catch (error) {
         handleError(error);

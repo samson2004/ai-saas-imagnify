@@ -91,7 +91,7 @@ export const Collection = ({
 const Card = ({ image }) => {
   return (
     <li>
-      <Link href={`/transformations/${image._id}`} className="collection-card  hover:shadow-purple-200/20">
+      <Link href={`/transformation/${image._id}`} className="collection-card  hover:shadow-purple-200/20">
         <CldImage
           src={image.publicId}
           alt={image.title}
