@@ -1,7 +1,7 @@
 
 
 "use client";
-import InsufficientCreditModal from '@/components/shared/InsufficientCreditModal'
+import InsufficientCreditsModal from '@/components/shared/InsufficientCreditModal'
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
 import { z } from "zod"
@@ -48,7 +48,7 @@ const TranformationForm = ({action,data=null,userId,type,creaditBalance,config=n
   const [IsTransforming,setIsTransforming]=useState(false);
   const [Transformationconfig,setTransformationconfig]=useState(config);
 
-  const [isPending,startTransition]=useTransition();
+  const [,startTransition]=useTransition();
   const router= useRouter();
 
 
@@ -196,7 +196,7 @@ const TranformationForm = ({action,data=null,userId,type,creaditBalance,config=n
   return (
     <Form {...form}>
     <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
-      {creaditBalance  < Math.abs(creditFee) && (<InsufficientCreditModal/>)}
+      {creaditBalance  < Math.abs(creditFee) && (<InsufficientCreditsModal/>)}
     <CustomField 
     control={form.control}
     name='title'

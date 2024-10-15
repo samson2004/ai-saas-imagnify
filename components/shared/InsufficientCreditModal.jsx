@@ -14,7 +14,7 @@ import {
   AlertDialogTitle,
 } from "@/components/ui/alert-dialog";
 
-export const InsufficientCreditsModal = () => {
+const InsufficientCreditsModal = () => {
   const router = useRouter();
 
   return (
@@ -71,3 +71,5 @@ export const InsufficientCreditsModal = () => {
     </AlertDialog>
   );
 };
+
+export default InsufficientCreditsModal

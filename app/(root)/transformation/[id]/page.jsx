@@ -7,12 +7,12 @@ import TransformedImage from "@/components/shared/TransformedImage";
 import { Button } from "@/components/ui/button";
 import { GetImagebyId } from "@/lib/actions/image.actions";
 import { getImageSize } from "@/lib/utils";
-// import { DeleteConfirmation } from "@/components/shared/DeleteConfirmation";
+import { DeleteConfirmation } from "@/components/shared/DeleteConfirmation";
 
 const ImageDetails = async ({ params: { id } }) => {
   const { userId } = auth();
-
   const image = await GetImagebyId(id);
+
 
   return (
     <>
@@ -58,7 +58,7 @@ const ImageDetails = async ({ params: { id } }) => {
       </section>
 
       <section className="mt-10 border-t border-dark-400/15">
-        <div className="transformation-grid">
+        <div className="transformation-grid md:grid-cols-2">
           {/* MEDIA UPLOADER */}
           <div className="flex flex-col gap-4">
             <h3 className="h3-bold text-dark-600">Original</h3>
@@ -87,11 +87,11 @@ const ImageDetails = async ({ params: { id } }) => {
           <div className="mt-4 space-y-4">
             <Button asChild type="button" className="submit-button capitalize">
               <Link href={`/transformation/${image._id}/update`}>
-                Update Image
+                Update Image  
               </Link>
             </Button>
 
-            {/* <DeleteConfirmation imageId={image._id} /> */}
+            <DeleteConfirmation imageId={image._id} />
           </div>
         )}
       </section>
