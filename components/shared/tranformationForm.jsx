@@ -29,6 +29,7 @@ import { useRouter } from "next/navigation";
 
 
 
+
 export const formSchema = z.object({
   // username: z.string().min(2).max(50),
   title:z.string(),
@@ -48,12 +49,12 @@ const TranformationForm = ({action,data=null,userId,type,creaditBalance,config=n
   const [IsTransforming,setIsTransforming]=useState(false);
   const [Transformationconfig,setTransformationconfig]=useState(config);
 
-  const [,startTransition]=useTransition();
+  const [startTransition]=useTransition();
   const router= useRouter();
 
 
 
-  const initalvalue=data && action==='Update'?{
+  const initalvalue=data && action=='Update'?{
 
     title: data?.title ,
     aspectRatio: data?.aspectRatio,
@@ -68,7 +69,6 @@ const TranformationForm = ({action,data=null,userId,type,creaditBalance,config=n
   })
 
   async function onSubmit(values) {
-    console.log(values);
 
     setIsSubmitting(true);
     
@@ -113,6 +113,7 @@ const TranformationForm = ({action,data=null,userId,type,creaditBalance,config=n
     }
 
     if(action=='Update'){
+      console.log(data);
       try {
         const updatedImage=await UpdateImage({
           image:{
@@ -214,6 +215,7 @@ const TranformationForm = ({action,data=null,userId,type,creaditBalance,config=n
         render={({field})=> (
           <Select
           onValueChange={(value)=>onSelectFieldHandler(value,field.onChange)}
+          value={field.value}
           >
             <SelectTrigger className="select-field disabled:opacity-100 placeholder:text-dark-400/50    md:h-[54px] focus:ring-offset-0 focus-visible:ring-transparent focus:ring-transparent focus-visible:ring-0 focus-visible:outline-none !important">
               <SelectValue placeholder="Select size" />

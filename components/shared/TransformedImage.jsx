@@ -14,14 +14,20 @@ const TransformedImage = (
         title,
         IsTransforming,
         setIsTransforming,
-        Transformationconfig,
+        transformationConfig,
         hasDownload=false
     }
 ) => {
     const downloadHandler=(e)=>{
         e.preventDefault();
-        download(getCldImageUrl({width:image?.width,height:image?.height,src:image?.publicId,...Transformationconfig}),title);
+        download(getCldImageUrl(
+                {
+                width:image?.width,
+                height:image?.height,
+                src:image?.publicId,
+                ...transformationConfig}),title);
     };
+
   return (
     <div className='flex flex-col gap-4'>
         <div className='flex-between'>
@@ -40,7 +46,7 @@ const TransformedImage = (
                 </button>
             )}
         </div>
-        {image?.publicId && Transformationconfig ? 
+        {image?.publicId && transformationConfig ? 
         (
             <div className='relative'>
                 <CldImage 
@@ -56,9 +62,9 @@ const TransformedImage = (
                             onError={()=>{
                                 debounce(()=>{
                                     setIsTransforming && setIsTransforming(false);
-                                },8000)
+                                },8000)()
                             }}
-                            {...Transformationconfig}
+                            {...transformationConfig}
                             />
                             {IsTransforming && (
                                 <div className='transforming-loader'>
@@ -68,6 +74,7 @@ const TransformedImage = (
                                     width={50}
                                     alt='spinner'
                                     />
+                                    <p className='text-white/80'>Please wait ...</p>
                                 </div>
                             )}
             </div>
