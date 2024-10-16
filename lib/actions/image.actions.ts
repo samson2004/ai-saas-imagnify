@@ -8,6 +8,7 @@ import Image from "../database/models/image.model";
 import { redirect } from "next/navigation";
 import {v2 as cloudinary}  from 'cloudinary'
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const populateuser=(query:any)=>query.populate({
     path:'author',
     model:User,
@@ -17,7 +18,6 @@ const populateuser=(query:any)=>query.populate({
 //add image
 export async function AddImage({userId,image,path}:AddImageParams){
     try {
-        console.log(path)
         await connecttodatabase;
 
         const author=await User.findById(userId);
@@ -114,7 +114,8 @@ export async function GetAllImages({limit=9,page=1,searchQuery=''}) {
         .expression(expression)
         .execute();
 
-        const resourceIds=resources.map((element)=>element.public_id);
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        const resourceIds=resources.map((element: { public_id: any; })=>element.public_id);
         let query={}
 
         if(searchQuery){
@@ -126,6 +127,7 @@ export async function GetAllImages({limit=9,page=1,searchQuery=''}) {
         }
 
 
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
         const skipAmount=(Number(page)-1 * limit);
         const images=await populateuser(Image.find(query)).sort({updatedAt:-1}).limit(limit);
         const savedImages=await Image.find(query).countDocuments();
