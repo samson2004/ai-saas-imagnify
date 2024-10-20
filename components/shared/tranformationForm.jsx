@@ -168,9 +168,9 @@ const TranformationForm = ({action,data=null,userId,type,creaditBalance,config=n
           ...prev?.[type],
           [fieldname == 'prompt'? 'prompt':'to']:value
         }
-      }))
-      return onChangeField(value);
-    },1000);
+      }))   
+    },1000)();
+    return onChangeField(value);
   }
 // TODO: return to update creadits
 

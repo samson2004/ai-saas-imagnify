@@ -35,7 +35,7 @@
     "app/(root)/layout.jsx",
     "app/(auth)/layout.jsx",
     "app/(root)/page.jsx"
-, "middleware.ts", "app/layout.tsx", "app/(root)/transformation/add/[type]/page.jsx"  ],
+, "middleware.ts", "app/layout.tsx", "app/(root)/transformation/add/[type]/page.jsx", "lib/actions/transaction.actions.js"  ],
   "exclude": [
     "node_modules"
   ]
