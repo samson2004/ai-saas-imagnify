@@ -289,7 +289,7 @@ const TranformationForm = ({action,data=null,userId,type,creaditBalance,config=n
       title={form.getValues().title}
       IsTransforming={IsTransforming}
       setIsTransforming={setIsTransforming}
-      Transformationconfig={Transformationconfig}
+      transformationConfig={Transformationconfig}
 
       
       />
