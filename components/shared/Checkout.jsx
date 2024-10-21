@@ -4,14 +4,14 @@ import { Button } from "../ui/button";
 const Checkout = ({plan,amount,credits,buyerId}) => { 
     const onCheckout = async()=>{
         'use server'
-        let token=await getaccesstoken();
+        const token=await getaccesstoken();
         const transaction={
             plan,
             amount,
             credits,
             buyerId
         }
-        await CheckoutCredits(transaction,token);
+        await CheckoutCredits(transaction,token.data.access_token);
     }
     return (
         <form action={onCheckout} method="POST">
