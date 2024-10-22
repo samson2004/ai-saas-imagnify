@@ -16,6 +16,8 @@ const TransactionSchema = new Schema({
   },
   plan: {
     type: String,
+    required: true,
+    default:'Free'
   },
   credits: {
     type: Number,
@@ -24,6 +26,9 @@ const TransactionSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: "User",
   },
+  paypalaccesstoken:{
+    type:String
+  }
 });
 
 const Transaction = models?.Transaction || model("Transaction", TransactionSchema);

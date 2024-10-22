@@ -1,23 +1,30 @@
 
-import {getaccesstoken} from '@/lib/actions/transaction.actions'
+import { getaccesstoken} from '@/lib/actions/transaction.actions'
 import { CheckoutCredits } from "@/lib/actions/transaction.actions";
 import { Button } from "../ui/button";
 import { redirect } from 'next/navigation';
 const Checkout = async({plan,amount,credits,buyerId}) => { 
-
+    
 
     const onCheckout = async()=>{
         'use server'
-    const token=await getaccesstoken('post');
+
+    let token=await getaccesstoken('post');
+    const newtoken=token.data.access_token
+
     const transaction={
             plan,
             amount,
             credits,
-            buyerId
+            buyerId,
+            newtoken
         }
+    // console.log(transaction)
     const url=await CheckoutCredits(transaction,token.data.access_token); 
     
-    if(url) redirect(url);     
+    if(url){
+        redirect(url);//paypal site->confirmationpage
+    }     
      
    
     }
